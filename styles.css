@@ -3,11 +3,11 @@
    =================================== */
 :root {
     /* Paleta Clara / Neutra */
-    --bg-color: #f2f2f2;       /* Gris muy suave, casi blanco */
-    --text-color: #1a1a1a;     /* Negro suave para lectura */
-    --accent-color: #000000;   /* Negro puro para acentos */
-    --grey-color: #888888;     /* Gris medio para metadatos */
-    --panel-bg: #ffffff;       /* Fondo blanco para tarjetas */
+    --bg-color: #f2f2f2;       
+    --text-color: #1a1a1a;     
+    --accent-color: #000000;   
+    --grey-color: #888888;     
+    --panel-bg: #ffffff;       
     
     /* Tipografía */
     --font-main: 'Helvetica Neue', Arial, sans-serif;
@@ -32,7 +32,7 @@ a { text-decoration: none; color: inherit; cursor: none; }
 img, video { display: block; width: 100%; height: auto; }
 
 /* ===================================
-   2. CUSTOM CURSOR (AHORA OSCURO)
+   2. CUSTOM CURSOR
    =================================== */
 .cursor-dot,
 .cursor-outline {
@@ -48,17 +48,17 @@ img, video { display: block; width: 100%; height: auto; }
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background-color: var(--text-color); /* Punto negro */
+    background-color: var(--text-color);
 }
 
 .cursor-outline {
     width: 40px;
     height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.3); /* Círculo gris suave */
+    border: 1px solid rgba(0, 0, 0, 0.3);
     transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
-/* Estado Hover (Se vuelve sólido) */
+/* Estado Hover */
 body.hovering .cursor-outline {
     width: 15px;
     height: 15px;
@@ -67,7 +67,7 @@ body.hovering .cursor-outline {
 }
 
 /* ===================================
-   3. GLASS HEADER (MODO CLARO)
+   3. GLASS HEADER
    =================================== */
 .glass-header {
     position: fixed;
@@ -83,15 +83,14 @@ body.hovering .cursor-outline {
     align-items: center;
     padding: 0 30px;
     
-    /* Efecto Cristal Claro */
-    background: rgba(255, 255, 255, 0.6); /* Blanco semitransparente */
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Sombra muy suave */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     border-radius: 30px;
     
-    z-index: 9999;
+    z-index: 9990; /* Bajamos un poco para que transiciones pasen por encima */
     transition: all 0.3s ease;
 }
 
@@ -110,7 +109,7 @@ body.hovering .cursor-outline {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #666; /* Gris para items inactivos */
+    color: #666;
     font-weight: 600;
     transition: color 0.3s;
     position: relative;
@@ -141,14 +140,15 @@ body.hovering .cursor-outline {
         border-radius: 0;
         border: none;
         border-bottom: 1px solid rgba(0,0,0,0.05);
-        background: rgba(255, 255, 255, 0.85); /* Más opaco en móvil */
+        background: rgba(255, 255, 255, 0.85);
         padding: 0 20px;
     }
 }
 
 /* ===================================
-   4. HOME: 3D CAROUSEL (LIMPIO)
+   4. HOME: 3D CAROUSEL
    =================================== */
+
 .carousel-container {
     width: 100vw;
     height: 100vh;
@@ -177,9 +177,8 @@ body.hovering .cursor-outline {
     left: 50%; top: 50%;
     margin-left: -240px; margin-top: -135px;
     
-    /* Estilo Tarjeta */
-    background: #000; /* Mantenemos fondo negro para enmarcar videos */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* Sombra elegante */
+    background: #000;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     border: none;
     cursor: pointer;
     
@@ -188,11 +187,13 @@ body.hovering .cursor-outline {
     overflow: hidden;
 }
 
+/* AQUÍ ESTÁ EL CAMBIO CLAVE */
 .carousel-panel img,
 .carousel-panel video {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajuste perfecto sin recortes */
+    /* COVER: Rellena todo el cuadro, recortando lo que sobre para no dejar bordes negros */
+    object-fit: cover; 
     position: absolute;
     top: 0; left: 0;
     pointer-events: none;
@@ -217,7 +218,7 @@ body.hovering .cursor-outline {
 .panel-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: white; /* Texto blanco porque el fondo del panel es oscuro/video */
+    color: white; 
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
@@ -234,10 +235,8 @@ body.hovering .cursor-outline {
 }
 
 /* ===================================
-   ABOUT PAGE: ABSTRACT & FLUID
+   5. ABOUT PAGE
    =================================== */
-
-/* HERO SECTION */
 .about-hero {
     position: relative;
     width: 100%;
@@ -257,26 +256,21 @@ body.hovering .cursor-outline {
     color: var(--text-color);
     margin-bottom: 20px;
     z-index: 2;
-    mix-blend-mode: difference; /* Truco para que se lea sobre la foto */
+    mix-blend-mode: difference;
 }
 
 .about-floating-img {
     position: absolute;
-    top: 20%;
-    right: 10%;
-    width: 30vw;
-    height: 40vw;
+    top: 20%; right: 10%;
+    width: 30vw; height: 40vw;
     object-fit: cover;
     z-index: 1;
     opacity: 0.8;
     filter: grayscale(100%);
     transition: filter 0.5s;
-    /* Empezará rotada desde JS */
 }
 
-.about-floating-img:hover {
-    filter: grayscale(0%);
-}
+.about-floating-img:hover { filter: grayscale(0%); }
 
 .about-bio-block {
     max-width: 600px;
@@ -291,7 +285,7 @@ body.hovering .cursor-outline {
     color: #555;
 }
 
-/* TIMELINE SECTION */
+/* TIMELINE */
 .about-timeline-section {
     padding: 100px 40px;
     max-width: 1400px;
@@ -300,7 +294,7 @@ body.hovering .cursor-outline {
 
 .timeline-item {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* Año - Rol - Lugar */
+    grid-template-columns: 1fr 2fr 1fr;
     padding: 40px 0;
     border-top: 1px solid rgba(0,0,0,0.1);
     transition: all 0.4s ease;
@@ -308,7 +302,7 @@ body.hovering .cursor-outline {
 }
 
 .timeline-item:hover {
-    padding-left: 20px; /* Desplazamiento sutil */
+    padding-left: 20px;
     background: white;
 }
 
@@ -316,10 +310,10 @@ body.hovering .cursor-outline {
 .t-role { font-size: 2.5rem; font-weight: 400; color: var(--text-color); }
 .t-place { font-size: 1rem; text-align: right; text-transform: uppercase; letter-spacing: 1px; }
 
-/* SKILLS MARQUEE */
+/* SKILLS */
 .skills-marquee-wrapper {
     padding: 100px 0;
-    background: var(--text-color); /* Fondo oscuro para contraste */
+    background: var(--text-color);
     color: var(--bg-color);
     overflow: hidden;
     position: relative;
@@ -341,7 +335,7 @@ body.hovering .cursor-outline {
 }
 .skill-item:hover { opacity: 1; color: white; }
 
-/* CONTACT FOOTER */
+/* CONTACT */
 .about-contact {
     height: 60vh;
     display: flex;
@@ -360,398 +354,435 @@ body.hovering .cursor-outline {
 }
 .contact-link:hover { border-bottom: 1px solid currentColor; }
 
-
-/* RESPONSIVE */
+/* RESPONSIVE ABOUT */
 @media (max-width: 768px) {
-    .about-title-large { font-size: 15vw; }
-    .about-floating-img { width: 70vw; height: 70vw; top: 15%; right: -10%; opacity: 0.2; }
+    .about-hero {
+        padding: 120px 20px 40px 20px;
+        justify-content: flex-start;
+        min-height: auto;
+        display: flex; flex-direction: column;
+    }
+    .about-title-large {
+        font-size: 13vw;
+        line-height: 1; margin-bottom: 20px;
+        mix-blend-mode: normal; 
+        text-align: left; order: 1;
+    }
+    .about-floating-img {
+        position: relative; top: auto; right: auto;
+        width: 100%; height: 300px;
+        object-fit: cover; border-radius: 4px;
+        opacity: 1; filter: grayscale(0%);
+        margin: 20px 0 30px 0; order: 2; z-index: 1;
+    }
+    .about-bio-block { margin-top: 0; width: 100%; padding-right: 0; order: 3; }
+    .about-bio-text { font-size: 1.05rem; line-height: 1.6; color: var(--text-color); }
     
-    .timeline-item { grid-template-columns: 1fr; gap: 10px; }
-    .t-role { font-size: 1.8rem; }
-    .t-place { text-align: left; }
+    .about-timeline-section { padding: 30px 20px 60px 20px; }
+    .timeline-item { grid-template-columns: 1fr; gap: 5px; padding: 25px 0; text-align: left; }
+    .t-year { font-size: 0.85rem; order: 1; }
+    .t-role { font-size: 1.6rem; line-height: 1.2; order: 2; margin-bottom: 5px; }
+    .t-place { text-align: left; font-size: 0.9rem; order: 3; opacity: 0.8; }
     
-    .skills-track { font-size: 2rem; }
-    .contact-link { font-size: 1.5rem; }
+    .skills-marquee-wrapper { padding: 60px 0; }
+    .skills-track { font-size: 2.5rem; }
+    .skill-item { padding: 0 20px; }
+    
+    .about-contact { height: auto; padding: 80px 20px; min-height: 40vh; }
+    .contact-link { font-size: 1.4rem; word-break: break-word; }
 }
 
 /* ===================================
-   6. PÁGINA GALERÍA (INFINITE)
+   6. GALERÍA: MENU & TRAIL
    =================================== */
-.gallery-viewport {
+.gallery-wrapper {
     width: 100vw;
     height: 100vh;
+    background: var(--bg-color);
     overflow: hidden;
-    background: var(--bg-color); /* Fondo claro */
     position: relative;
 }
 
-.gallery-card {
+.collections-list {
     position: absolute;
-    will-change: transform;
-    overflow: hidden;
-    cursor: pointer;
-    background: white; /* Borde blanco sutil si la imagen no carga */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
-}
-
-.gallery-card img {
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
-    filter: brightness(1);
-}
-
-.gallery-card:hover img {
-    filter: brightness(0.8); /* Oscurecer un poco al hover */
-    transform: scale(1.05);
-}
-
-.gallery-caption {
-    position: absolute;
-    bottom: 10px; left: 10px;
-    color: white; /* Texto blanco sobre la foto */
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.4s ease;
+    text-align: center;
     z-index: 10;
-    pointer-events: none;
+    display: flex; flex-direction: column; gap: 20px;
 }
 
-.gallery-card:hover .gallery-caption {
+.collection-item {
+    font-size: 5vw;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    letter-spacing: -2px;
+    position: relative;
+    padding: 10px 0;
+}
+
+.collection-item:hover {
+    color: var(--text-color);
+    transform: scale(1.05);
+    z-index: 20;
+}
+
+.collection-meta {
+    font-size: 1rem; display: block;
+    opacity: 0; transform: translateY(10px);
+    transition: all 0.3s;
+    letter-spacing: 2px; margin-top: 5px; font-weight: 600;
+}
+
+.collection-item:hover .collection-meta {
     opacity: 1; transform: translateY(0);
 }
 
-/* RESPONSIVE GALLERY */
-@media (max-width: 768px) {
-    .gallery-caption { font-size: 0.75rem; bottom: 5px; left: 5px; }
+.trail-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.trail-img {
+    position: absolute;
+    width: 250px; height: 350px;
+    object-fit: cover; border-radius: 4px;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    will-change: transform, opacity;
 }
 
 /* ===================================
-   DETALLE PROYECTO: ESTILO ABSTRACTO
+   7. GALERÍA: STREAM VIEW (EL DETALLE)
    =================================== */
+.collection-stream-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    /* Fix para móviles para evitar el salto de barra de navegación */
+    height: 100dvh; 
+    background: var(--bg-color);
+    z-index: 100;
+    display: flex; 
+    align-items: center;
+    visibility: hidden; 
+    opacity: 0;
+    transition: opacity 0.5s;
+}
 
-/* HERO CON MARQUEE (TEXTO EN MOVIMIENTO) */
+/* INFO MINIMALISTA FIJA (NUEVA POSICIÓN: BOTTOM-LEFT) */
+.stream-info {
+    position: fixed;
+    top: auto; 
+    bottom: 50px; 
+    left: 50px;
+    z-index: 150;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px); 
+    transition: all 0.8s ease;
+}
+
+.stream-info h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: -1px;
+    line-height: 0.9;
+}
+
+.stream-info span {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+    font-family: monospace;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* TRACK DEL RÍO */
+.stream-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding-left: 20vw;
+    height: 100%;
+    will-change: transform;
+}
+
+/* ITEM INDIVIDUAL (AJUSTE NO-CROP) */
+.stream-item {
+    flex-shrink: 0;
+    position: relative;
+    /* Altura automática para respetar formato original */
+    height: auto !important; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.stream-item img,
+.stream-item video {
+    width: 100%; 
+    height: auto; /* La altura depende del ancho */
+    object-fit: contain; /* Se ve entera, sin recorte */
+    display: block;
+    filter: grayscale(100%) contrast(1.1);
+    transition: all 0.6s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.stream-item:hover img,
+.stream-item:hover video {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.back-btn {
+    position: absolute;
+    bottom: 30px; left: 50%; transform: translateX(-50%);
+    font-size: 0.75rem; text-transform: uppercase;
+    cursor: pointer; letter-spacing: 2px;
+    border-bottom: none; mix-blend-mode: difference; color: white;
+    z-index: 200; opacity: 0; pointer-events: none;
+    transition: opacity 0.5s;
+}
+.back-btn::after {
+    content: ''; display: block; width: 100%; height: 1px; background: white;
+    transform: scaleX(0); transition: transform 0.3s;
+}
+.back-btn:hover::after { transform: scaleX(1); }
+
+
+/* RESPONSIVE: STREAM VIEW */
+@media (max-width: 768px) {
+    /* Info sube arriba en móvil */
+    .stream-info {
+        top: 100px; 
+        bottom: auto;
+        left: 20px;
+    }
+    .stream-info h2 { font-size: 2rem; }
+
+    /* Ajustes lista principal */
+    .collection-item { font-size: 12vw; padding: 15px 0; }
+    .trail-container { display: none; }
+
+    /* Ajustes del Stream */
+    .stream-track { padding-left: 10vw; }
+    
+    .stream-item {
+        min-width: 70vw !important; 
+        transform: translateY(0) !important; 
+        margin-right: 20px !important;
+    }
+    
+    .stream-item img, 
+    .stream-item video {
+        filter: grayscale(0%) contrast(1); 
+    }
+}
+
+
+/* ===================================
+   8. DETALLE PROYECTO (ABSTRACTO & NO-CROP)
+   =================================== */
 .p-abstract-hero {
     position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background: var(--bg-color);
+    width: 100%; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden; background: var(--bg-color);
 }
 
 .p-marquee-container {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    white-space: nowrap;
-    z-index: 1; /* Detrás de la imagen */
-    opacity: 0.15; /* Muy sutil, como marca de agua gigante */
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 100%; white-space: nowrap; z-index: 1; opacity: 0.15;
 }
 
 .p-marquee-text {
-    font-size: 15vw; /* GIGANTE */
-    font-weight: 800;
-    text-transform: uppercase;
-    display: inline-block;
-    padding-right: 50px;
-    line-height: 0.8;
+    font-size: 15vw; font-weight: 800; text-transform: uppercase;
+    display: inline-block; padding-right: 50px; line-height: 0.8;
 }
 
-/* IMAGEN FLOTANTE HERO */
+/* --- WRAPPER ADAPTABLE Y MÁS PEQUEÑO --- */
 .p-floating-img-wrapper {
     position: relative;
-    z-index: 5; /* Delante del texto */
-    width: 35vw;
-    height: 50vh;
-    overflow: hidden;
-    /* Inclinación inicial sutil para estilo */
-    transform: rotate(-3deg); 
-}
-
-.p-floating-img {
-    width: 100%;
-    height: 120%; /* Para parallax interno */
-    object-fit: cover;
-}
-
-/* LAYOUT ASIMÉTRICO (STICKY SIDEBAR) */
-.p-abstract-grid {
+    z-index: 5;
+    
+    /* Se adapta a la proporción de la foto */
+    width: auto;
+    height: auto;
+    
+    /* Tamaño máximo más contenido (55% de pantalla) */
+    max-width: 55vw; 
+    max-height: 65vh;
+    
+    /* Visible para no recortar sombras ni bordes */
+    overflow: visible;
+    
+    transform: rotate(-3deg);
     display: flex;
-    max-width: 1400px;
-    margin: 100px auto;
-    padding: 0 40px;
-    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease;
 }
 
-/* COLUMNA IZQUIERDA (FIJA/STICKY) */
-.p-sidebar {
-    width: 30%;
-    height: fit-content;
-    position: sticky;
-    top: 100px; /* Se queda pegado arriba al hacer scroll */
-    padding-right: 40px;
+/* Efecto al pasar el ratón */
+.p-floating-img-wrapper:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
 }
 
-/* COLUMNA DERECHA (SCROLL) */
-.p-content-col {
-    width: 70%;
-    padding-top: 100px; /* Desplazado hacia abajo para romper simetría */
-}
-
-/* ESTILOS DE INFO */
-.p-meta-block {
-    margin-bottom: 40px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    padding-top: 10px;
-}
-.p-meta-label {
-    font-size: 0.8rem; text-transform: uppercase; color: #888; display: block; margin-bottom: 5px;
-}
-.p-meta-value {
-    font-size: 1.2rem; font-weight: 500;
-}
-
-/* ESTILOS DE TEXTO GRANDE */
-.p-big-desc {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 80px;
-    font-weight: 300;
-}
-
-/* GALERÍA DESORDENADA */
-.p-abstract-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 150px; /* Mucho aire entre fotos */
-}
-
-.p-img-item {
-    width: 80%;
-    height: 600px;
-    object-fit: cover;
+.p-floating-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; /* Muestra la foto entera */
     display: block;
+    border-radius: 4px;
 }
 
-/* Variaciones de alineación */
-.p-img-left { margin-right: auto; } /* Alineado izq */
-.p-img-right { margin-left: auto; width: 90%; } /* Alineado der */
-.p-img-center { width: 100%; margin: 0 auto; height: 700px; }
+.p-abstract-grid {
+    display: flex; max-width: 1400px;
+    margin: 100px auto; padding: 0 40px; position: relative;
+}
 
-/* RESPONSIVE */
+.p-sidebar {
+    width: 30%; height: fit-content;
+    position: sticky; top: 100px; padding-right: 40px;
+}
+
+.p-content-col { width: 70%; padding-top: 100px; }
+
+.p-meta-block {
+    margin-bottom: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px;
+}
+.p-meta-label { font-size: 0.8rem; text-transform: uppercase; color: #888; display: block; margin-bottom: 5px; }
+.p-meta-value { font-size: 1.2rem; font-weight: 500; }
+
+.p-big-desc {
+    font-size: 2.5rem; line-height: 1.2; margin-bottom: 80px; font-weight: 300;
+}
+
+/* GALERÍA DESORDENADA (NO-CROP) */
+.p-abstract-gallery { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 100px; 
+}
+
+.p-img-item { 
+    width: 100%; 
+    height: auto; /* Altura libre según la foto */
+    object-fit: contain; /* Sin recorte */
+    display: block; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Tamaños controlados */
+.p-img-left { margin-right: auto; width: 70%; }
+.p-img-right { margin-left: auto; width: 80%; }
+.p-img-center { width: 100%; margin: 0 auto; }
+
+
+/* RESPONSIVE PROJECT */
 @media (max-width: 768px) {
     .p-abstract-hero { height: 70vh; }
     .p-marquee-text { font-size: 20vw; }
-    .p-floating-img-wrapper { width: 70vw; height: 40vh; transform: rotate(0deg); }
+    
+    /* Ajuste Móvil */
+    .p-floating-img-wrapper { 
+        max-width: 80vw; 
+        max-height: 45vh; 
+        transform: rotate(0deg); 
+    }
     
     .p-abstract-grid { flex-direction: column; }
     .p-sidebar { width: 100%; position: relative; top: 0; margin-bottom: 50px; }
     .p-content-col { width: 100%; padding-top: 0; }
     
     .p-big-desc { font-size: 1.5rem; }
-    .p-img-item { width: 100%; height: auto; min-height: 300px; }
+    
+    /* En móvil todo al 100% */
+    .p-img-left, .p-img-right, .p-img-center { width: 100%; }
+    .p-img-item { min-height: auto; }
+    
     .p-abstract-gallery { gap: 50px; }
 }
 
 /* ===================================
-   8. TRANSICIONES
+   9. TRANSICIONES & EXTRAS
    =================================== */
 .page-transition-overlay {
-    position: fixed;
-    top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: var(--text-color); /* Telón negro ahora, para contraste con fondo claro */
+    background-color: var(--text-color);
     z-index: 10000;
     transform: translateY(100%);
     pointer-events: none;
 }
 
-/* ===================================
-   BOTÓN EXTERNO FLOTANTE (STICKY)
-   =================================== */
 .project-floating-btn {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    z-index: 100;
-    
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 30px;
-    
-    background: #000; /* Negro puro */
-    color: white;
-    border-radius: 50px; /* Cápsula */
-    
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    /* Sombra elegante */
+    position: fixed; bottom: 40px; right: 40px; z-index: 100;
+    display: flex; align-items: center; gap: 15px; padding: 20px 30px;
+    background: #000; color: white; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    
-    /* Animación de entrada */
-    transform: translateY(100px); /* Oculto inicialmente */
-    opacity: 0;
-    
+    transform: translateY(100px); opacity: 0;
     transition: transform 0.3s ease, background 0.3s;
     cursor: pointer;
 }
+.project-floating-btn:hover { transform: scale(1.05) translateY(0) !important; background: #222; }
 
-.project-floating-btn:hover {
-    transform: scale(1.05) translateY(0) !important; /* El translateY 0 es para cuando ya entró */
-    background: #222;
-}
+.btn-arrow { width: 20px; height: 20px; display: block; fill: white; transform: rotate(-45deg); transition: transform 0.3s ease; }
+.project-floating-btn:hover .btn-arrow { transform: rotate(0deg); }
 
-/* Flecha animada dentro del botón */
-.btn-arrow {
-    width: 20px;
-    height: 20px;
-    display: block;
-    fill: white;
-    transform: rotate(-45deg);
-    transition: transform 0.3s ease;
-}
-
-.project-floating-btn:hover .btn-arrow {
-    transform: rotate(0deg); /* Se pone recta al hover */
-}
-
-
-/* ===================================
-   ANIMACIONES DE REVELADO (MASK REVEAL)
-   =================================== */
-.reveal-wrapper {
-    overflow: hidden; /* Necesario para que el texto salga de 'la nada' */
-}
-
-/* Clase para imágenes con efecto de cortina */
-.img-reveal-mask {
-    clip-path: inset(0 0 100% 0); /* Empieza recortada totalmente desde abajo */
-    transition: clip-path 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.img-reveal-active {
-    clip-path: inset(0 0 0 0); /* Se muestra completa */
-}
-
-
-/* ===================================
-   RESPONSIVE PARA EL BOTÓN
-   =================================== */
 @media (max-width: 768px) {
-    .project-floating-btn {
-        bottom: 20px;
-        right: 20px;
-        padding: 15px 25px;
-        font-size: 0.8rem;
-    }
+    .project-floating-btn { bottom: 20px; right: 20px; padding: 15px 25px; font-size: 0.8rem; }
 }
 
-/* ===================================
-   FOOTER "SIGUIENTE" (ELEGANTE & SUTIL)
-   =================================== */
+/* REVEAL */
+.reveal-wrapper { overflow: hidden; }
+.img-reveal-mask { clip-path: inset(0 0 100% 0); transition: clip-path 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
+.img-reveal-active { clip-path: inset(0 0 0 0); }
+
+/* FOOTER NEXT */
 .next-project-section {
-    width: 100%;
-    height: 45vh; /* Un poco más bajo para no ser enorme */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    background-color: #050505; /* Casi negro */
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    margin-top: 100px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%; height: 45vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    background-color: #050505; position: relative; overflow: hidden;
+    cursor: pointer; margin-top: 100px; border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Imagen de fondo: Blanco y negro y muy oscura por defecto */
 .next-project-bg {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    object-fit: cover;
-    
-    opacity: 0.2; /* Muy sutil, apenas se ve */
-    filter: grayscale(100%); /* Sin color para no distraer */
-    transform: scale(1);
-    
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* Transición suave */
-    z-index: 0;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.2; filter: grayscale(100%);
+    transform: scale(1); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); z-index: 0;
 }
+.next-project-section:hover .next-project-bg { opacity: 0.5; filter: grayscale(0%); transform: scale(1.03); }
 
-/* Efecto Hover en el contenedor */
-.next-project-section:hover .next-project-bg {
-    opacity: 0.5; /* Se ilumina un poco */
-    filter: grayscale(0%); /* Recupera el color */
-    transform: scale(1.03); /* Zoom muy lento */
-}
+.next-content-wrapper { position: relative; z-index: 10; text-align: center; mix-blend-mode: difference; }
 
-/* Contenido de texto */
-.next-content-wrapper {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    mix-blend-mode: difference; /* Truco pro: asegura contraste sobre cualquier foto */
-}
+.next-label { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; display: block; font-weight: 500; }
+.next-title { font-size: 3rem; color: white; text-transform: uppercase; font-weight: 300; letter-spacing: -1px; margin: 0; transition: transform 0.4s ease; }
+.next-arrow-icon { margin-top: 20px; width: 30px; height: 30px; fill: white; opacity: 0.5; transform: translateY(0); transition: all 0.4s ease; }
 
-.next-label {
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-    display: block;
-    font-weight: 500;
-}
+.next-project-section:hover .next-title { transform: translateY(-5px); }
+.next-project-section:hover .next-arrow-icon { opacity: 1; transform: translateY(5px); }
 
-.next-title {
-    font-size: 3rem; /* Grande pero no gigante */
-    color: white;
-    text-transform: uppercase;
-    font-weight: 300; /* Fino para elegancia */
-    letter-spacing: -1px;
-    margin: 0;
-    transition: transform 0.4s ease;
-}
-
-/* La flecha */
-.next-arrow-icon {
-    margin-top: 20px;
-    width: 30px;
-    height: 30px;
-    fill: white;
-    opacity: 0.5;
-    transform: translateY(0);
-    transition: all 0.4s ease;
-}
-
-/* Animación de textos al hover */
-.next-project-section:hover .next-title {
-    transform: translateY(-5px); /* Sube un poquito */
-}
-
-.next-project-section:hover .next-arrow-icon {
-    opacity: 1;
-    transform: translateY(5px); /* Baja un poquito */
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .next-project-section { height: 35vh; }
     .next-title { font-size: 2rem; }

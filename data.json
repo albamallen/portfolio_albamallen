@@ -7,111 +7,131 @@
   "projects": [
     {
       "id": "p1",
-      "title": "Not my responsibility",
-      "category": "Video",
+      "title": "Not Your Responsibility",
+      "category": "After Effects / Premiere",
       "year": "2024",
-      "image": "img/billie.png",
-      "client": "esd",
-      "role": "after effects y edición",
-      "description": "Una identidad visual moderna para una startup tecnológica.",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "gallery": ["img/billie.png", "img/billie.png"],
-      "externalLink": "https://www.google.com" 
+      "image": "img/billie.mp4",
+      "heroImage": "img/billie.png",
+      "client": "Academic Project",
+      "role": "Edición & Motion",
+      "description": "Pieza audiovisual cinética basada en la obra de Billie Eilish.",
+      "content": "Inspirado en la estética de 'Happier Than Ever: A Love Letter to Los Angeles', este proyecto explora la sincronización precisa entre sonido y tipografía. Se trata de un video lyric animado que utiliza el ritmo visual para reforzar el mensaje crítico de la canción, combinando animación de texto minimalista con una atmósfera oscura y elegante.",
+      "gallery": ["img/billie.mp4", "img/billie.png"],
+      "externalLink": "https://vimeo.com/863935302?share=copy&fl=sv&fe=ci" 
     },
     {
       "id": "p2",
-      "title": "Grix",
-      "category": "Tipography",
+      "title": "Grix Type",
+      "category": "Processing / p5.js",
       "year": "2024",
-      "image": "img/grix.png",
-      "client": "Tipografia experimental",
-      "role": "Diseño de tipografia y web",
-      "description": "Sitio web inmersivo para estudio de arquitectura.",
-      "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "gallery": ["img/grix.png", "img/billie.png", "img/billie.png"],
-      "externalLink": "https://www.awwwards.com"
+      "image": "img/grix.mp4",
+      "heroImage": "img/grix.png",
+      "client": "Experimental",
+      "role": "Dev & Interaction",
+      "description": "Tipografía reactiva al sonido para visuales en tiempo real.",
+      "content": "Grix es una herramienta de diseño generativo que fusiona tipografía y código. Desarrollada inicialmente en Processing y migrada a p5.js para web, permite que las fuentes reaccionen al audio en vivo, deformándose y creando patrones abstractos. Está pensada como una solución visual accesible para artistas y conciertos en directo.",
+      "gallery": ["img/grix.png", "img/grix.mp4", "img/grix2.mp4"],
+      "externalLink": "https://grix.netlify.app/"
     },
     {
       "id": "p3",
-      "title": "Flux App",
-      "category": "UI/UX Design",
-      "year": "2023",
-      "image": "img/lato.jpg",
-      "client": "Flux",
+      "title": "Steam Redesign",
+      "category": "Figma / Nuxt / Vue.js",
+      "year": "2024",
+      "image": "img/steam.png",
+      "client": "Academic Project",
       "role": "Product Designer",
-      "description": "Rediseño completo de la experiencia de usuario móvil.",
-      "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-      "gallery": ["img/grix.png"],
+      "description": "Rediseño integral de identidad y desarrollo web para Steam.",
+      "content": "Modernización completa de la interfaz de Steam buscando un sistema gráfico más dinámico y juvenil. El proyecto no se quedó en el diseño: se desarrolló el frontend funcional utilizando Nuxt (Vue.js) y se desplegó en Netlify. Se integraron APIs reales como RAWG y Swiper para crear una experiencia de navegación fluida y profesional.",
+      "gallery": ["img/steam/steam1.png", "img/steam/steam2.png", "img/steam/steam3.png", "img/steam/steam4.png", "img/steam/steam5.png", "img/steam/steam6.png"],
       "externalLink": "https://steam-albamallen.netlify.app/" 
     },
     {
       "id": "p4",
-      "title": "All for us",
-      "category": "Web App",
+      "title": "All For Us",
+      "category": "Premiere Pro / DaVinci",
       "year": "2023",
       "image": "img/billie.mp4",
-      "client": "esd",
-      "role": "video y edición",
-      "description": "Dashboard administrativo de alto rendimiento.",
-      "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      "client": "Personal",
+      "role": "Filmmaking & Color",
+      "description": "Narrativa visual sobre la conexión humana y el ritmo.",
+      "content": "Un cortometraje experimental que utiliza el montaje rítmico para deconstruir la narrativa lineal. Combinando metraje propio con técnicas de collage digital, la pieza se centra en la corrección de color y el diseño sonoro para evocar una atmósfera nostálgica y fragmentada, explorando nuevas formas de contar historias visuales.",
       "gallery": ["img/grix.png"],
       "externalLink": ""
     },
     {
       "id": "p5",
-      "title": "Lato",
-      "category": "Typography",
+      "title": "Lato Specimen",
+      "category": "InDesign / HTML / CSS",
       "year": "2023",
       "image": "img/lato.jpg",
-      "client": "especimen tipográfico",
-      "role": "Typographer",
-      "description": "Exploración tipográfica y diseño editorial.",
-      "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
-      "gallery": ["img/grix.png"],
+      "client": "Typography Project",
+      "role": "Design & Layout",
+      "description": "Espécimen tipográfico interactivo en formato físico y digital.",
+      "content": "Homenaje a la tipografía Lato de Łukasz Dziedzic. El proyecto abarca dos formatos: una pieza impresa tipo acordeón que despliega la anatomía de la fuente, y una web interactiva que traslada esa experiencia física a pestañas digitales. Se pone a prueba la legibilidad y versatilidad de la familia tipográfica en diferentes contextos.",
+      "gallery": ["img/lato/lato1.jpg", "img/lato/lato2.jpg", "img/lato/lato3.jpg", "img/lato/lato4.png", "img/lato/lato5.png", "img/lato/lato6.png"],
       "externalLink": "http://alba.astroerrante.es/html1.html"
     },
     {
       "id": "p6",
       "title": "Mutte",
-      "category": "TFG",
+      "category": "Processing / Figma / CNC",
       "year": "2022",
-      "image": "img/lato.jpg",
-      "client": "Esd",
-      "role": "Art Director",
-      "description": "Dirección de arte para campaña de moda digital.",
-      "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+      "image": "img/mutte.png",
+      "client": "TFG / Experimental",
+      "role": "Art Direction & Code",
+      "description": "Transformación visual de secretos anónimos mediante código.",
+      "content": "Mutte es una plataforma de arte generativo que convierte confesiones anónimas en composiciones abstractas únicas. Utilizando algoritmos en Processing, el texto se transforma en imagen para preservar la intimidad. El proyecto culminó materializando lo digital en físico mediante impresión CNC, reflexionando sobre la liberación emocional en la era digital.",
       "gallery": ["img/grix.png"],
-      "externalLink": "https://grix.netlify.app/"
+      "externalLink": ""
     }
   ],
-  "galleryImages": [
-    "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", 
-    "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", "img/lato.jpg",
-    "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", "img/lato.jpg"
+  "collections": [
+    {
+      "id": "c1",
+      "title": "Retratos",
+      "year": "2023-24",
+      "cover": "img/lato.jpg", 
+      "images": ["img/retratos/1.1.JPG", "img/retratos/1.2.JPG", "img/retratos/1.3.JPG", "img/retratos/1.4.JPG", "img/retratos/1.5.JPG", "img/retratos/1.6.JPG", "img/retratos/1.7.JPG"]
+    },
+    {
+      "id": "c2",
+      "title": "Paisajes",
+      "year": "2022",
+      "cover": "img/grix.png",
+      "images": ["img/paisajes/2.1.JPG", "img/paisajes/2.2.JPG", "img/paisajes/2.3.JPG", "img/paisajes/2.4.JPG"]
+    },
+    {
+      "id": "c3",
+      "title": "Experimental",
+      "year": "2024",
+      "cover": "img/billie.png",
+      "images": ["img/experimental/3.1.JPG", "img/experimental/3.2.JPG"]
+    }
   ],
   "aboutPage": {
     "title": "Alba Mallén",
     "subtitle": "Graphic & Interactive Designer based in Madrid.",
     "image": "img/yo.JPG", 
     "bio": [
-      "Soy una diseñadora multidisciplinar obsesionada con el movimiento y la interacción. Actualmente cursando el Máster en Diseño Interactivo en la ESD Madrid.",
-      "Mi enfoque combina la precisión del diseño gráfico tradicional con la libertad del código creativo. He trabajado con clientes como Roche, Atresmedia y Caixa, buscando siempre contar historias que conecten emocionalmente."
+      "Soy una diseñadora multidisciplinar que vive en la intersección entre el diseño gráfico y el código. Graduada por la ESD Madrid y actualmente especializándome en Diseño Interactivo.",
+      "Mi experiencia en agencias como Prodigioso Volcán me ha enseñado a trabajar con grandes clientes (Roche, Atresmedia, Caixa) manteniendo un alto estándar visual. Me obsesiona cómo el movimiento y la interacción pueden transformar una web estática en una narrativa emocional."
     ],
     "timeline": [
       {
-        "year": "2025 — Present",
+        "year": "2025 — Act.",
         "role": "Máster Diseño Interactivo",
         "place": "ESD Madrid",
         "type": "Education"
       },
       {
-        "year": "2024 — 2025",
+        "year": "Sep 2024 — Mar 2025",
         "role": "Diseñadora Gráfica",
         "place": "Prodigioso Volcán",
         "type": "Experience"
       },
       {
-        "year": "2025 (May-Jun)",
+        "year": "May 2025 — Jun 2025",
         "role": "Diseñadora Visual",
         "place": "Mia Foods",
         "type": "Experience"

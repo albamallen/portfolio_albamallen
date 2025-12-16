@@ -1,5 +1,5 @@
 // ===================================
-// LÓGICA DETALLE PROYECTO (ABSTRACT & PREMIUM)
+// LÓGICA DETALLE PROYECTO (FINAL)
 // ===================================
 
 function renderProjectPro(projects) {
@@ -27,38 +27,37 @@ function renderProjectPro(projects) {
     const container = document.getElementById("project-main");
 
     // ----------------------------------------------------
-    // 2. GENERAR MEDIA DEL HERO (VIDEO O FOTO)
+    // 2. GENERAR MEDIA DEL HERO (HeroImage o Video)
     // ----------------------------------------------------
-    const isHeroVideo = project.image.toLowerCase().endsWith(".mp4") || 
-                        project.image.toLowerCase().endsWith(".webm");
+    // Prioridad: heroImage > image
+    const sourceImage = project.heroImage ? project.heroImage : project.image;
+
+    const isHeroVideo = sourceImage.toLowerCase().endsWith(".mp4") || 
+                        sourceImage.toLowerCase().endsWith(".webm");
     
     const heroMedia = isHeroVideo 
-        ? `<video src="${project.image}" autoplay loop muted playsinline class="p-floating-img"></video>` 
-        : `<img src="${project.image}" class="p-floating-img" alt="${project.title}">`;
+        ? `<video src="${sourceImage}" autoplay loop muted playsinline class="p-floating-img"></video>` 
+        : `<img src="${sourceImage}" class="p-floating-img" alt="${project.title}">`;
 
 
     // ----------------------------------------------------
-    // 3. GENERAR GALERÍA ASIMÉTRICA (MIXTO VIDEO/FOTO)
+    // 3. GENERAR GALERÍA ASIMÉTRICA
     // ----------------------------------------------------
     let galleryHTML = "";
     
-    // Si hay galería definida en el JSON, la usamos. Si no, no mostramos nada.
     if (project.gallery && project.gallery.length > 0) {
         project.gallery.forEach((src, i) => {
-            // Lógica de diseño: 
-            // 0 -> Centro, 1 -> Izquierda, 2 -> Derecha (Patrón de 3)
             let alignClass = "p-img-center";
-            let speed = 80; // Velocidad parallax estándar
+            let speed = 80;
 
             if (i % 3 === 1) { 
                 alignClass = "p-img-left"; 
-                speed = 40; // Los de la izquierda van más lento
+                speed = 40; 
             } else if (i % 3 === 2) { 
                 alignClass = "p-img-right"; 
-                speed = 120; // Los de la derecha van más rápido
+                speed = 120; 
             }
 
-            // Detectar si es video
             const isVid = src.toLowerCase().endsWith(".mp4") || src.toLowerCase().endsWith(".webm");
             
             const tag = isVid 
@@ -71,11 +70,10 @@ function renderProjectPro(projects) {
 
 
     // ----------------------------------------------------
-    // 4. BOTÓN EXTERNO (SI EXISTE EN JSON)
+    // 4. BOTÓN EXTERNO (SI EXISTE)
     // ----------------------------------------------------
     let externalBtnHTML = "";
     if (project.externalLink && project.externalLink !== "") {
-        // Texto del botón (opcional, por defecto "Visitar Web")
         const btnText = project.linkText || "Visitar Web"; 
         
         externalBtnHTML = `
@@ -88,18 +86,16 @@ function renderProjectPro(projects) {
     }
 
     // ----------------------------------------------------
-    // 5. FOOTER MEDIA (VIDEO O FOTO)
+    // 5. FOOTER MEDIA (SIEMPRE IMAGEN)
     // ----------------------------------------------------
-    const isNextVideo = nextProject.image.toLowerCase().endsWith(".mp4") || 
-                        nextProject.image.toLowerCase().endsWith(".webm");
+    // Usamos heroImage si existe, si no image. Renderizamos siempre <img>.
+    const nextSource = nextProject.heroImage ? nextProject.heroImage : nextProject.image;
     
-    const nextMediaHTML = isNextVideo
-        ? `<video src="${nextProject.image}" autoplay loop muted playsinline class="next-project-bg"></video>`
-        : `<img src="${nextProject.image}" class="next-project-bg" alt="Next Project">`;
+    const nextMediaHTML = `<img src="${nextSource}" class="next-project-bg" alt="Next Project">`;
 
 
     // ----------------------------------------------------
-    // 6. INYECTAR TODO EL HTML
+    // 6. INYECTAR HTML FINAL
     // ----------------------------------------------------
     container.innerHTML = `
         <section class="p-abstract-hero">
@@ -126,7 +122,7 @@ function renderProjectPro(projects) {
                     <span class="p-meta-value">${project.year} — ${project.role}</span>
                 </div>
                 <div class="p-meta-block anim-meta">
-                    <span class="p-meta-label">Servicios</span>
+                    <span class="p-meta-label">Herramientas</span>
                     <span class="p-meta-value">${project.category}</span>
                 </div>
                 
@@ -151,7 +147,6 @@ function renderProjectPro(projects) {
             <div class="next-content-wrapper">
                 <span class="next-label">Siguiente Proyecto</span>
                 <h2 class="next-title">${nextProject.title}</h2>
-                
                 <svg class="next-arrow-icon" viewBox="0 0 24 24">
                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                 </svg>
@@ -161,7 +156,7 @@ function renderProjectPro(projects) {
         ${externalBtnHTML}
     `;
 
-    // 7. INICIAR LAS ANIMACIONES GSAP
+    // 7. INICIAR LAS ANIMACIONES
     initAbstractAnimations(nextProject.id);
 }
 
@@ -171,9 +166,9 @@ function renderProjectPro(projects) {
 
 function initAbstractAnimations(nextId) {
     
-    // A) MARQUEE SCROLL (Texto moviéndose lateralmente)
+    // A) MARQUEE SCROLL
     gsap.to(".p-marquee-text", {
-        xPercent: -30,
+        xPercent: -30, 
         ease: "none",
         scrollTrigger: {
             trigger: ".p-abstract-hero",
@@ -183,11 +178,11 @@ function initAbstractAnimations(nextId) {
         }
     });
 
-    // B) HERO IMAGE (Rotación y Escalado al bajar)
+    // B) HERO IMAGE
     gsap.to(".p-floating-img-wrapper", {
         rotation: 0, 
         y: 150,      
-        scale: 1.1,  
+        scale: 1.05,  
         ease: "none",
         scrollTrigger: {
             trigger: ".p-abstract-hero",
@@ -197,7 +192,7 @@ function initAbstractAnimations(nextId) {
         }
     });
 
-    // C) ENTRADA DATOS SIDEBAR (Stagger desde abajo)
+    // C) SIDEBAR
     gsap.from(".anim-meta", {
         y: 40,
         opacity: 0,
@@ -210,43 +205,40 @@ function initAbstractAnimations(nextId) {
         }
     });
 
-    // D) GALERÍA PARALLAX (CORREGIDO: MOVIMIENTO Y OPACIDAD SEPARADOS)
+    // D) GALERÍA PARALLAX
     const images = document.querySelectorAll(".parallax-img");
     
     images.forEach((img) => {
         const speed = img.getAttribute("data-speed") || 80;
         
-        // 1. Configuración inicial
         gsap.set(img, { opacity: 0, y: 100 }); 
 
-        // 2. Animación de APARICIÓN (Opacidad) - SIN SCRUB
-        // Se dispara una vez y completa la opacidad rápido
+        // 1. Aparición
         gsap.to(img, {
             opacity: 1,
-            duration: 1, // Tarda 1 segundo en aparecer
+            duration: 1, 
             ease: "power2.out",
             scrollTrigger: {
                 trigger: img,
-                start: "top 85%", // Empieza cuando el top de la imagen entra al 85% de la pantalla
-                toggleActions: "play none none reverse" // Si subes, se vuelve a ocultar, si bajas aparece
+                start: "top 85%", 
+                toggleActions: "play none none reverse" 
             }
         });
 
-        // 3. Animación de MOVIMIENTO (Parallax) - CON SCRUB
-        // Esta sí depende del scroll para moverse
+        // 2. Movimiento
         gsap.to(img, {
-            y: -speed, // Sube según la velocidad calculada
+            y: -speed, 
             ease: "none",
             scrollTrigger: {
                 trigger: img,
-                start: "top bottom", // Desde que entra por abajo
-                end: "bottom top",   // Hasta que sale por arriba
-                scrub: 1.2 // Suavizado del movimiento
+                start: "top bottom", 
+                end: "bottom top",   
+                scrub: 1.2 
             }
         });
     });
     
-    // E) APARICIÓN BOTÓN EXTERNO
+    // E) BOTÓN EXTERNO
     const fab = document.querySelector(".project-floating-btn");
     if (fab) {
         gsap.to(fab, {
@@ -258,11 +250,12 @@ function initAbstractAnimations(nextId) {
         });
     }
 
-    // F) CLICK SIGUIENTE PROYECTO
+    // F) CLICK "SIGUIENTE PROYECTO"
     const nextSection = document.querySelector(".next-project-section");
     if (nextSection) {
         nextSection.addEventListener("click", () => {
             const overlay = document.querySelector(".page-transition-overlay");
+            
             gsap.to(overlay, { 
                 y: "0%", 
                 duration: 0.8, 
