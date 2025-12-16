@@ -1,0 +1,758 @@
+/* ===================================
+   1. VARIABLES & RESET (LIGHT THEME)
+   =================================== */
+:root {
+    /* Paleta Clara / Neutra */
+    --bg-color: #f2f2f2;       /* Gris muy suave, casi blanco */
+    --text-color: #1a1a1a;     /* Negro suave para lectura */
+    --accent-color: #000000;   /* Negro puro para acentos */
+    --grey-color: #888888;     /* Gris medio para metadatos */
+    --panel-bg: #ffffff;       /* Fondo blanco para tarjetas */
+    
+    /* Tipografía */
+    --font-main: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Cursor nativo oculto */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; cursor: none; }
+img, video { display: block; width: 100%; height: auto; }
+
+/* ===================================
+   2. CUSTOM CURSOR (AHORA OSCURO)
+   =================================== */
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color); /* Punto negro */
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.3); /* Círculo gris suave */
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Estado Hover (Se vuelve sólido) */
+body.hovering .cursor-outline {
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* ===================================
+   3. GLASS HEADER (MODO CLARO)
+   =================================== */
+.glass-header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1400px;
+    height: 60px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    
+    /* Efecto Cristal Claro */
+    background: rgba(255, 255, 255, 0.6); /* Blanco semitransparente */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Sombra muy suave */
+    border-radius: 30px;
+    
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.header-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.header-nav { display: flex; gap: 30px; }
+
+.nav-link {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666; /* Gris para items inactivos */
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-link:hover { color: var(--text-color); }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 4px;
+    height: 4px;
+    background: var(--text-color);
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+.nav-link:hover::after { transform: translateX(-50%) scale(1); }
+
+/* RESPONSIVE HEADER */
+@media (max-width: 768px) {
+    .glass-header {
+        top: 0; left: 0;
+        transform: none;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        background: rgba(255, 255, 255, 0.85); /* Más opaco en móvil */
+        padding: 0 20px;
+    }
+}
+
+/* ===================================
+   4. HOME: 3D CAROUSEL (LIMPIO)
+   =================================== */
+.carousel-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+.carousel-panel {
+    position: absolute;
+    /* Tamaño Escritorio */
+    width: 480px; 
+    height: 270px;
+    
+    left: 50%; top: 50%;
+    margin-left: -240px; margin-top: -135px;
+    
+    /* Estilo Tarjeta */
+    background: #000; /* Mantenemos fondo negro para enmarcar videos */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* Sombra elegante */
+    border: none;
+    cursor: pointer;
+    
+    pointer-events: auto !important; 
+    will-change: transform;
+    overflow: hidden;
+}
+
+.carousel-panel img,
+.carousel-panel video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajuste perfecto sin recortes */
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.panel-info {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.carousel-panel:hover .panel-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white; /* Texto blanco porque el fondo del panel es oscuro/video */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* RESPONSIVE CAROUSEL */
+@media (max-width: 768px) {
+    .carousel-container { perspective: 1000px; }
+    
+    .carousel-panel {
+        width: 240px; height: 150px;
+        margin-left: -120px; margin-top: -75px;
+    }
+    .panel-info { font-size: 0.9rem; bottom: 10px; left: 10px; }
+    .panel-title { font-size: 1rem; }
+}
+
+/* ===================================
+   ABOUT PAGE: ABSTRACT & FLUID
+   =================================== */
+
+/* HERO SECTION */
+.about-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    overflow: hidden;
+}
+
+.about-title-large {
+    font-size: 8vw;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    z-index: 2;
+    mix-blend-mode: difference; /* Truco para que se lea sobre la foto */
+}
+
+.about-floating-img {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 30vw;
+    height: 40vw;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.8;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+    /* Empezará rotada desde JS */
+}
+
+.about-floating-img:hover {
+    filter: grayscale(0%);
+}
+
+.about-bio-block {
+    max-width: 600px;
+    margin-top: 50px;
+    z-index: 5;
+}
+
+.about-bio-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* TIMELINE SECTION */
+.about-timeline-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Año - Rol - Lugar */
+    padding: 40px 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    align-items: baseline;
+}
+
+.timeline-item:hover {
+    padding-left: 20px; /* Desplazamiento sutil */
+    background: white;
+}
+
+.t-year { font-size: 1rem; color: #999; font-weight: 500; }
+.t-role { font-size: 2.5rem; font-weight: 400; color: var(--text-color); }
+.t-place { font-size: 1rem; text-align: right; text-transform: uppercase; letter-spacing: 1px; }
+
+/* SKILLS MARQUEE */
+.skills-marquee-wrapper {
+    padding: 100px 0;
+    background: var(--text-color); /* Fondo oscuro para contraste */
+    color: var(--bg-color);
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.skills-track {
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.skill-item {
+    display: inline-block;
+    padding: 0 40px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.skill-item:hover { opacity: 1; color: white; }
+
+/* CONTACT FOOTER */
+.about-contact {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-link {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+}
+.contact-link:hover { border-bottom: 1px solid currentColor; }
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .about-title-large { font-size: 15vw; }
+    .about-floating-img { width: 70vw; height: 70vw; top: 15%; right: -10%; opacity: 0.2; }
+    
+    .timeline-item { grid-template-columns: 1fr; gap: 10px; }
+    .t-role { font-size: 1.8rem; }
+    .t-place { text-align: left; }
+    
+    .skills-track { font-size: 2rem; }
+    .contact-link { font-size: 1.5rem; }
+}
+
+/* ===================================
+   6. PÁGINA GALERÍA (INFINITE)
+   =================================== */
+.gallery-viewport {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg-color); /* Fondo claro */
+    position: relative;
+}
+
+.gallery-card {
+    position: absolute;
+    will-change: transform;
+    overflow: hidden;
+    cursor: pointer;
+    background: white; /* Borde blanco sutil si la imagen no carga */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(1);
+}
+
+.gallery-card:hover img {
+    filter: brightness(0.8); /* Oscurecer un poco al hover */
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 10px; left: 10px;
+    color: white; /* Texto blanco sobre la foto */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.gallery-card:hover .gallery-caption {
+    opacity: 1; transform: translateY(0);
+}
+
+/* RESPONSIVE GALLERY */
+@media (max-width: 768px) {
+    .gallery-caption { font-size: 0.75rem; bottom: 5px; left: 5px; }
+}
+
+/* ===================================
+   DETALLE PROYECTO: ESTILO ABSTRACTO
+   =================================== */
+
+/* HERO CON MARQUEE (TEXTO EN MOVIMIENTO) */
+.p-abstract-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: var(--bg-color);
+}
+
+.p-marquee-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    white-space: nowrap;
+    z-index: 1; /* Detrás de la imagen */
+    opacity: 0.15; /* Muy sutil, como marca de agua gigante */
+}
+
+.p-marquee-text {
+    font-size: 15vw; /* GIGANTE */
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-right: 50px;
+    line-height: 0.8;
+}
+
+/* IMAGEN FLOTANTE HERO */
+.p-floating-img-wrapper {
+    position: relative;
+    z-index: 5; /* Delante del texto */
+    width: 35vw;
+    height: 50vh;
+    overflow: hidden;
+    /* Inclinación inicial sutil para estilo */
+    transform: rotate(-3deg); 
+}
+
+.p-floating-img {
+    width: 100%;
+    height: 120%; /* Para parallax interno */
+    object-fit: cover;
+}
+
+/* LAYOUT ASIMÉTRICO (STICKY SIDEBAR) */
+.p-abstract-grid {
+    display: flex;
+    max-width: 1400px;
+    margin: 100px auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* COLUMNA IZQUIERDA (FIJA/STICKY) */
+.p-sidebar {
+    width: 30%;
+    height: fit-content;
+    position: sticky;
+    top: 100px; /* Se queda pegado arriba al hacer scroll */
+    padding-right: 40px;
+}
+
+/* COLUMNA DERECHA (SCROLL) */
+.p-content-col {
+    width: 70%;
+    padding-top: 100px; /* Desplazado hacia abajo para romper simetría */
+}
+
+/* ESTILOS DE INFO */
+.p-meta-block {
+    margin-bottom: 40px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 10px;
+}
+.p-meta-label {
+    font-size: 0.8rem; text-transform: uppercase; color: #888; display: block; margin-bottom: 5px;
+}
+.p-meta-value {
+    font-size: 1.2rem; font-weight: 500;
+}
+
+/* ESTILOS DE TEXTO GRANDE */
+.p-big-desc {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 80px;
+    font-weight: 300;
+}
+
+/* GALERÍA DESORDENADA */
+.p-abstract-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 150px; /* Mucho aire entre fotos */
+}
+
+.p-img-item {
+    width: 80%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Variaciones de alineación */
+.p-img-left { margin-right: auto; } /* Alineado izq */
+.p-img-right { margin-left: auto; width: 90%; } /* Alineado der */
+.p-img-center { width: 100%; margin: 0 auto; height: 700px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .p-abstract-hero { height: 70vh; }
+    .p-marquee-text { font-size: 20vw; }
+    .p-floating-img-wrapper { width: 70vw; height: 40vh; transform: rotate(0deg); }
+    
+    .p-abstract-grid { flex-direction: column; }
+    .p-sidebar { width: 100%; position: relative; top: 0; margin-bottom: 50px; }
+    .p-content-col { width: 100%; padding-top: 0; }
+    
+    .p-big-desc { font-size: 1.5rem; }
+    .p-img-item { width: 100%; height: auto; min-height: 300px; }
+    .p-abstract-gallery { gap: 50px; }
+}
+
+/* ===================================
+   8. TRANSICIONES
+   =================================== */
+.page-transition-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--text-color); /* Telón negro ahora, para contraste con fondo claro */
+    z-index: 10000;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+/* ===================================
+   BOTÓN EXTERNO FLOTANTE (STICKY)
+   =================================== */
+.project-floating-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+    
+    background: #000; /* Negro puro */
+    color: white;
+    border-radius: 50px; /* Cápsula */
+    
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Sombra elegante */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    
+    /* Animación de entrada */
+    transform: translateY(100px); /* Oculto inicialmente */
+    opacity: 0;
+    
+    transition: transform 0.3s ease, background 0.3s;
+    cursor: pointer;
+}
+
+.project-floating-btn:hover {
+    transform: scale(1.05) translateY(0) !important; /* El translateY 0 es para cuando ya entró */
+    background: #222;
+}
+
+/* Flecha animada dentro del botón */
+.btn-arrow {
+    width: 20px;
+    height: 20px;
+    display: block;
+    fill: white;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+}
+
+.project-floating-btn:hover .btn-arrow {
+    transform: rotate(0deg); /* Se pone recta al hover */
+}
+
+
+/* ===================================
+   ANIMACIONES DE REVELADO (MASK REVEAL)
+   =================================== */
+.reveal-wrapper {
+    overflow: hidden; /* Necesario para que el texto salga de 'la nada' */
+}
+
+/* Clase para imágenes con efecto de cortina */
+.img-reveal-mask {
+    clip-path: inset(0 0 100% 0); /* Empieza recortada totalmente desde abajo */
+    transition: clip-path 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.img-reveal-active {
+    clip-path: inset(0 0 0 0); /* Se muestra completa */
+}
+
+
+/* ===================================
+   RESPONSIVE PARA EL BOTÓN
+   =================================== */
+@media (max-width: 768px) {
+    .project-floating-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ===================================
+   FOOTER "SIGUIENTE" (ELEGANTE & SUTIL)
+   =================================== */
+.next-project-section {
+    width: 100%;
+    height: 45vh; /* Un poco más bajo para no ser enorme */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #050505; /* Casi negro */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 100px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Imagen de fondo: Blanco y negro y muy oscura por defecto */
+.next-project-bg {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    
+    opacity: 0.2; /* Muy sutil, apenas se ve */
+    filter: grayscale(100%); /* Sin color para no distraer */
+    transform: scale(1);
+    
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* Transición suave */
+    z-index: 0;
+}
+
+/* Efecto Hover en el contenedor */
+.next-project-section:hover .next-project-bg {
+    opacity: 0.5; /* Se ilumina un poco */
+    filter: grayscale(0%); /* Recupera el color */
+    transform: scale(1.03); /* Zoom muy lento */
+}
+
+/* Contenido de texto */
+.next-content-wrapper {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    mix-blend-mode: difference; /* Truco pro: asegura contraste sobre cualquier foto */
+}
+
+.next-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    display: block;
+    font-weight: 500;
+}
+
+.next-title {
+    font-size: 3rem; /* Grande pero no gigante */
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300; /* Fino para elegancia */
+    letter-spacing: -1px;
+    margin: 0;
+    transition: transform 0.4s ease;
+}
+
+/* La flecha */
+.next-arrow-icon {
+    margin-top: 20px;
+    width: 30px;
+    height: 30px;
+    fill: white;
+    opacity: 0.5;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+/* Animación de textos al hover */
+.next-project-section:hover .next-title {
+    transform: translateY(-5px); /* Sube un poquito */
+}
+
+.next-project-section:hover .next-arrow-icon {
+    opacity: 1;
+    transform: translateY(5px); /* Baja un poquito */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .next-project-section { height: 35vh; }
+    .next-title { font-size: 2rem; }
+}

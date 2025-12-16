@@ -1,0 +1,135 @@
+{
+  "hero": {
+    "title": "Alba Mallén",
+    "subtitle": "Digital Designer & Art Director",
+    "image": "img/yo.JPG"
+  },
+  "projects": [
+    {
+      "id": "p1",
+      "title": "Not my responsibility",
+      "category": "Video",
+      "year": "2024",
+      "image": "img/billie.png",
+      "client": "esd",
+      "role": "after effects y edición",
+      "description": "Una identidad visual moderna para una startup tecnológica.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "gallery": ["img/billie.png", "img/billie.png"],
+      "externalLink": "https://www.google.com" 
+    },
+    {
+      "id": "p2",
+      "title": "Grix",
+      "category": "Tipography",
+      "year": "2024",
+      "image": "img/grix.png",
+      "client": "Tipografia experimental",
+      "role": "Diseño de tipografia y web",
+      "description": "Sitio web inmersivo para estudio de arquitectura.",
+      "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "gallery": ["img/grix.png", "img/billie.png", "img/billie.png"],
+      "externalLink": "https://www.awwwards.com"
+    },
+    {
+      "id": "p3",
+      "title": "Flux App",
+      "category": "UI/UX Design",
+      "year": "2023",
+      "image": "img/lato.jpg",
+      "client": "Flux",
+      "role": "Product Designer",
+      "description": "Rediseño completo de la experiencia de usuario móvil.",
+      "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "gallery": ["img/grix.png"],
+      "externalLink": "https://steam-albamallen.netlify.app/" 
+    },
+    {
+      "id": "p4",
+      "title": "All for us",
+      "category": "Web App",
+      "year": "2023",
+      "image": "img/billie.mp4",
+      "client": "esd",
+      "role": "video y edición",
+      "description": "Dashboard administrativo de alto rendimiento.",
+      "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      "gallery": ["img/grix.png"],
+      "externalLink": ""
+    },
+    {
+      "id": "p5",
+      "title": "Lato",
+      "category": "Typography",
+      "year": "2023",
+      "image": "img/lato.jpg",
+      "client": "especimen tipográfico",
+      "role": "Typographer",
+      "description": "Exploración tipográfica y diseño editorial.",
+      "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+      "gallery": ["img/grix.png"],
+      "externalLink": "http://alba.astroerrante.es/html1.html"
+    },
+    {
+      "id": "p6",
+      "title": "Mutte",
+      "category": "TFG",
+      "year": "2022",
+      "image": "img/lato.jpg",
+      "client": "Esd",
+      "role": "Art Director",
+      "description": "Dirección de arte para campaña de moda digital.",
+      "content": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+      "gallery": ["img/grix.png"],
+      "externalLink": "https://grix.netlify.app/"
+    }
+  ],
+  "galleryImages": [
+    "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", 
+    "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", "img/lato.jpg",
+    "img/lato.jpg", "img/lato.jpg", "img/lato.jpg", "img/lato.jpg"
+  ],
+  "aboutPage": {
+    "title": "Alba Mallén",
+    "subtitle": "Graphic & Interactive Designer based in Madrid.",
+    "image": "img/yo.JPG", 
+    "bio": [
+      "Soy una diseñadora multidisciplinar obsesionada con el movimiento y la interacción. Actualmente cursando el Máster en Diseño Interactivo en la ESD Madrid.",
+      "Mi enfoque combina la precisión del diseño gráfico tradicional con la libertad del código creativo. He trabajado con clientes como Roche, Atresmedia y Caixa, buscando siempre contar historias que conecten emocionalmente."
+    ],
+    "timeline": [
+      {
+        "year": "2025 — Present",
+        "role": "Máster Diseño Interactivo",
+        "place": "ESD Madrid",
+        "type": "Education"
+      },
+      {
+        "year": "2024 — 2025",
+        "role": "Diseñadora Gráfica",
+        "place": "Prodigioso Volcán",
+        "type": "Experience"
+      },
+      {
+        "year": "2025 (May-Jun)",
+        "role": "Diseñadora Visual",
+        "place": "Mia Foods",
+        "type": "Experience"
+      },
+      {
+        "year": "2021 — 2025",
+        "role": "Grado en Diseño Gráfico",
+        "place": "ESD Madrid",
+        "type": "Education"
+      }
+    ],
+    "skills": [
+      "Photoshop", "Illustrator", "InDesign", "After Effects", 
+      "Figma", "HTML5", "CSS3", "JavaScript", "Notion", "Branding"
+    ],
+    "contact": {
+      "email": "albamallenm@gmail.com",
+      "phone": "+34 609 37 82 11"
+    }
+  }
+}
