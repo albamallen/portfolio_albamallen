@@ -26,7 +26,7 @@
       "year": "2024",
       "image": "img/grix.mp4",
       "heroImage": "img/grix.png",
-      "client": "Experimental",
+      "client": "Academic Typography Experimental Project",
       "role": "Dev & Interaction",
       "description": "Tipografía reactiva al sonido para visuales en tiempo real.",
       "content": "Grix es una herramienta de diseño generativo que fusiona tipografía y código. Desarrollada inicialmente en Processing y migrada a p5.js para web, permite que las fuentes reaccionen al audio en vivo, deformándose y creando patrones abstractos. Está pensada como una solución visual accesible para artistas y conciertos en directo.",
@@ -47,25 +47,12 @@
       "externalLink": "https://steam-albamallen.netlify.app/" 
     },
     {
-      "id": "p4",
-      "title": "All For Us",
-      "category": "Premiere Pro / DaVinci",
-      "year": "2023",
-      "image": "img/billie.mp4",
-      "client": "Personal",
-      "role": "Filmmaking & Color",
-      "description": "Narrativa visual sobre la conexión humana y el ritmo.",
-      "content": "Un cortometraje experimental que utiliza el montaje rítmico para deconstruir la narrativa lineal. Combinando metraje propio con técnicas de collage digital, la pieza se centra en la corrección de color y el diseño sonoro para evocar una atmósfera nostálgica y fragmentada, explorando nuevas formas de contar historias visuales.",
-      "gallery": ["img/grix.png"],
-      "externalLink": ""
-    },
-    {
       "id": "p5",
       "title": "Lato Specimen",
       "category": "InDesign / HTML / CSS",
       "year": "2023",
       "image": "img/lato.jpg",
-      "client": "Typography Project",
+      "client": "Academic Typography Project",
       "role": "Design & Layout",
       "description": "Espécimen tipográfico interactivo en formato físico y digital.",
       "content": "Homenaje a la tipografía Lato de Łukasz Dziedzic. El proyecto abarca dos formatos: una pieza impresa tipo acordeón que despliega la anatomía de la fuente, y una web interactiva que traslada esa experiencia física a pestañas digitales. Se pone a prueba la legibilidad y versatilidad de la familia tipográfica en diferentes contextos.",
@@ -106,16 +93,15 @@
       "title": "Experimental",
       "year": "2024",
       "cover": "img/billie.png",
-      "images": ["img/experimental/3.1.JPG", "img/experimental/3.2.jpg"]
+      "images": ["img/experimental/3.1.JPG", "img/experimental/3.2.JPG"]
     }
   ],
   "aboutPage": {
     "title": "Alba Mallén",
-    "subtitle": "Graphic & Interactive Designer based in Madrid.",
+    "subtitle": "Graphic & UX/UI Designer based in Madrid.",
     "image": "img/yo.JPG", 
     "bio": [
-      "Soy una diseñadora multidisciplinar que vive en la intersección entre el diseño gráfico y el código. Graduada por la ESD Madrid y actualmente especializándome en Diseño Interactivo.",
-      "Mi experiencia en agencias como Prodigioso Volcán me ha enseñado a trabajar con grandes clientes (Roche, Atresmedia, Caixa) manteniendo un alto estándar visual. Me obsesiona cómo el movimiento y la interacción pueden transformar una web estática en una narrativa emocional."
+      "Soy una diseñadora multidisciplinar que vive en la intersección entre el diseño gráfico y el código. Graduada por la ESD Madrid y actualmente especializándome en Diseño Interactivo."
     ],
     "timeline": [
       {
@@ -132,7 +118,7 @@
       },
       {
         "year": "May 2025 — Jun 2025",
-        "role": "Diseñadora Visual",
+        "role": "Diseñadora Gráfica",
         "place": "Mia Foods",
         "type": "Experience"
       },
