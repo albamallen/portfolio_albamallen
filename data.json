@@ -26,7 +26,7 @@
       "year": "2024",
       "image": "img/grix.mp4",
       "heroImage": "img/grix.png",
-      "client": "Experimental",
+      "client": "Academic Typography Experimental Project",
       "role": "Dev & Interaction",
       "description": "Tipografía reactiva al sonido para visuales en tiempo real.",
       "content": "Grix es una herramienta de diseño generativo que fusiona tipografía y código. Desarrollada inicialmente en Processing y migrada a p5.js para web, permite que las fuentes reaccionen al audio en vivo, deformándose y creando patrones abstractos. Está pensada como una solución visual accesible para artistas y conciertos en directo.",
@@ -48,16 +48,16 @@
     },
     {
       "id": "p4",
-      "title": "All For Us",
-      "category": "Premiere Pro / DaVinci",
-      "year": "2023",
-      "image": "img/billie.mp4",
-      "client": "Personal",
-      "role": "Filmmaking & Color",
-      "description": "Narrativa visual sobre la conexión humana y el ritmo.",
-      "content": "Un cortometraje experimental que utiliza el montaje rítmico para deconstruir la narrativa lineal. Combinando metraje propio con técnicas de collage digital, la pieza se centra en la corrección de color y el diseño sonoro para evocar una atmósfera nostálgica y fragmentada, explorando nuevas formas de contar historias visuales.",
-      "gallery": ["img/grix.png"],
-      "externalLink": ""
+      "title": "Teatros del Canal",
+      "category": "Figma",
+      "year": "2026",
+      "image": "img/steam.png",
+      "client": "Academic Project",
+      "role": "UX/UI",
+      "description": "Rediseño y desarrollo en Figma.",
+      "content": "Este proyecto consiste en el rediseño conceptual de la plataforma digital de Teatros del Canal, con el objetivo de mejorar la jerarquización de contenidos, la experiencia de usuario y la coherencia visual de una institución cultural de carácter público.El trabajo parte de un análisis crítico de la web actual, detectando problemas como la falta de jerarquía en la cartelera, el exceso de información presentada de forma homogénea y la dificultad para localizar contenidos relevantes dentro de un flujo de navegación extenso. A partir de este diagnóstico, se plantea un nuevo sistema de diseño centrado en la claridad, la accesibilidad y la experiencia escénica. La propuesta busca trasladar al entorno digital la sensación de asistir a un teatro: una experiencia inmersiva, visualmente potente y enfocada en el espectáculo. Para ello, se prioriza el uso de grandes imágenes, fondos contrastados, tipografías expresivas y una estructura clara que pone en primer plano la información esencial de cada obra. Todo el proyecto ha sido diseñado íntegramente en Figma, utilizando componentes, estilos y variables para garantizar consistencia, escalabilidad y facilidad de mantenimiento. El prototipo resultante permite visualizar el comportamiento de la plataforma en distintos dispositivos y simular una experiencia real de navegación.Este proyecto demuestra un enfoque integral de diseño UX/UI aplicado a una plataforma cultural, combinando identidad visual, estructura de información y diseño de sistemas con una visión contemporánea y funcional.",
+      "gallery": ["img/steam/steam1.png", "img/steam/steam2.png", "img/steam/steam3.png", "img/steam/steam4.png", "img/steam/steam5.png", "img/steam/steam6.png"],
+      "externalLink": "https://www.figma.com/design/Beo0ZGi0neoJ9YQFMZ3jEi/teatros-del-canal?node-id=560-4785&t=mgOUkLvZs5kY4hTa-1" 
     },
     {
       "id": "p5",
@@ -65,7 +65,7 @@
       "category": "InDesign / HTML / CSS",
       "year": "2023",
       "image": "img/lato.jpg",
-      "client": "Typography Project",
+      "client": "Academic Typography Project",
       "role": "Design & Layout",
       "description": "Espécimen tipográfico interactivo en formato físico y digital.",
       "content": "Homenaje a la tipografía Lato de Łukasz Dziedzic. El proyecto abarca dos formatos: una pieza impresa tipo acordeón que despliega la anatomía de la fuente, y una web interactiva que traslada esa experiencia física a pestañas digitales. Se pone a prueba la legibilidad y versatilidad de la familia tipográfica en diferentes contextos.",
@@ -111,11 +111,10 @@
   ],
   "aboutPage": {
     "title": "Alba Mallén",
-    "subtitle": "Graphic & Interactive Designer based in Madrid.",
+    "subtitle": "Graphic & UX/UI Designer based in Madrid.",
     "image": "img/yo.JPG", 
     "bio": [
-      "Soy una diseñadora multidisciplinar que vive en la intersección entre el diseño gráfico y el código. Graduada por la ESD Madrid y actualmente especializándome en Diseño Interactivo.",
-      "Mi experiencia en agencias como Prodigioso Volcán me ha enseñado a trabajar con grandes clientes (Roche, Atresmedia, Caixa) manteniendo un alto estándar visual. Me obsesiona cómo el movimiento y la interacción pueden transformar una web estática en una narrativa emocional."
+      "Soy una diseñadora multidisciplinar que vive en la intersección entre el diseño gráfico y el código. Graduada por la ESD Madrid y actualmente especializándome en Diseño Interactivo."
     ],
     "timeline": [
       {
@@ -132,7 +131,7 @@
       },
       {
         "year": "May 2025 — Jun 2025",
-        "role": "Diseñadora Visual",
+        "role": "Diseñadora Gráfica",
         "place": "Mia Foods",
         "type": "Experience"
       },

@@ -430,7 +430,7 @@ function initAbout(data) {
     container.innerHTML = `
         <section class="about-hero">
             <h1 class="about-title-large reveal-text">
-                Digital <br> Designer & <br> Developer
+                Graphic <br>  & UX/UI  <br> Designer
             </h1>
             <img src="${data.image}" class="about-floating-img" alt="Alba Mallén">
             <div class="about-bio-block">
