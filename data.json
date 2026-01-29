@@ -8,7 +8,7 @@
     {
       "id": "p1",
       "title": "Not Your Responsibility",
-      "category": "After Effects / Premiere",
+      "category": "After Effects",
       "year": "2024",
       "image": "img/billie.mp4",
       "heroImage": "img/billie.png",
@@ -51,12 +51,12 @@
       "title": "Teatros del Canal",
       "category": "Figma",
       "year": "2026",
-      "image": "img/steam.png",
+      "image": "img/teatros/logo.png",
       "client": "Academic Project",
       "role": "UX/UI",
       "description": "Rediseño y desarrollo en Figma.",
-      "content": "Este proyecto consiste en el rediseño conceptual de la plataforma digital de Teatros del Canal, con el objetivo de mejorar la jerarquización de contenidos, la experiencia de usuario y la coherencia visual de una institución cultural de carácter público.El trabajo parte de un análisis crítico de la web actual, detectando problemas como la falta de jerarquía en la cartelera, el exceso de información presentada de forma homogénea y la dificultad para localizar contenidos relevantes dentro de un flujo de navegación extenso. A partir de este diagnóstico, se plantea un nuevo sistema de diseño centrado en la claridad, la accesibilidad y la experiencia escénica. La propuesta busca trasladar al entorno digital la sensación de asistir a un teatro: una experiencia inmersiva, visualmente potente y enfocada en el espectáculo. Para ello, se prioriza el uso de grandes imágenes, fondos contrastados, tipografías expresivas y una estructura clara que pone en primer plano la información esencial de cada obra. Todo el proyecto ha sido diseñado íntegramente en Figma, utilizando componentes, estilos y variables para garantizar consistencia, escalabilidad y facilidad de mantenimiento. El prototipo resultante permite visualizar el comportamiento de la plataforma en distintos dispositivos y simular una experiencia real de navegación.Este proyecto demuestra un enfoque integral de diseño UX/UI aplicado a una plataforma cultural, combinando identidad visual, estructura de información y diseño de sistemas con una visión contemporánea y funcional.",
-      "gallery": ["img/steam/steam1.png", "img/steam/steam2.png", "img/steam/steam3.png", "img/steam/steam4.png", "img/steam/steam5.png", "img/steam/steam6.png"],
+      "content": "Proyecto de rediseño conceptual de la plataforma digital de Teatros del Canal, centrado en mejorar la jerarquía de contenidos, la experiencia de usuario y la coherencia visual de una institución cultural pública. A partir del análisis de la web actual, se detectan problemas de organización de la cartelera, exceso de información sin jerarquía clara y una navegación poco intuitiva. La propuesta plantea un nuevo sistema de diseño que traslada la experiencia del teatro al entorno digital, priorizando el espectáculo, la claridad informativa y el impacto visual. Se desarrolla un sistema de diseño completo, incluyendo tipografía, color (modo claro y oscuro), retícula, espaciados, componentes y variantes de logotipo, garantizando consistencia y escalabilidad en todo el producto. El proyecto ha sido realizado íntegramente en Figma, utilizando estilos, variables y componentes reutilizables, y se presenta mediante un prototipo de alta fidelidad adaptado a desktop y móvil.",
+      "gallery": ["img/teatros/desktop_teatros_video.mp4", "img/teatros/mobile_teatros_video.mp4"],
       "externalLink": "https://www.figma.com/design/Beo0ZGi0neoJ9YQFMZ3jEi/teatros-del-canal?node-id=560-4785&t=mgOUkLvZs5kY4hTa-1" 
     },
     {
@@ -124,15 +124,15 @@
         "type": "Education"
       },
       {
-        "year": "Sep 2024 — Mar 2025",
-        "role": "Diseñadora Gráfica",
-        "place": "Prodigioso Volcán",
-        "type": "Experience"
-      },
-      {
         "year": "May 2025 — Jun 2025",
         "role": "Diseñadora Gráfica",
         "place": "Mia Foods",
+        "type": "Experience"
+      },
+      {
+        "year": "Sep 2024 — Mar 2025",
+        "role": "Diseñadora Gráfica",
+        "place": "Prodigioso Volcán",
         "type": "Experience"
       },
       {
